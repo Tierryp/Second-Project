@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Forum</title>
+</head>
+<body>
+ <nav>
+    {{#unless isLoggedIn}}
+ <a href = "/auth/signup">Sign Up</a>
+ <a href = "/auth/login"> Log in</a>
+{{/unless }}
+
+{{#if isLoggedIn}}
+<a href = "/user/profile"> Profile</a>
+<a href = "/user/subforums"> Subforums</a>
+{{/if}}
+    {{{body}}}
+    </nav>
+</body>
+</html>

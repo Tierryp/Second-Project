@@ -1,0 +1,23 @@
+<h1>Log in</h1>
+
+
+<form action = "/auth/login" method = "post">
+<label>Username</label> 
+<br>
+<input type = "text" name = "username">
+<br>
+<label>Password</label> 
+<br>
+<input type = "password" name = "password">
+<br>
+<button type = "submit">Log in</button>
+</form>
+
+
+{{#if createdMessage}}
+<p style = "color:green;">{{createdMessage}}</p>
+{{/if}}
+
+{{#if errorMessage}}
+<p style = "color:red;">{{errorMessage}}</p>
+{{/if}}
