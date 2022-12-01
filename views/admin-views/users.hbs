@@ -1,0 +1,15 @@
+<h1>Users</h1>
+{{#each foundUsers}}
+<p>{{username}}</p>
+<p>Is admin: {{isAdmin}}</p>
+<form action = "/admin/{{_id}}/make-admin" method ="Post">
+<button> Make a moderator</button>
+</form>
+<form action = "/admin/{{_id}}/remove-admin" method ="Post">
+<button class="btn btn-sm btn-danger mb-0 mx-2" > Remove moderation</button>
+</form>
+{{#if successMessage}}
+<p style="color: green;"> {{successMessage}}</p>
+{{/if}}
+<hr>
+{{/each}}

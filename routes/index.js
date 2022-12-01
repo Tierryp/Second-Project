@@ -7,7 +7,7 @@ const {
 } = require("../middlewares/auth.middleware.js");
 
 router.get("/", isPublic, (req, res, next) => {
-res.render("home.hbs")
+res.render("home.hbs" )
 
 
 

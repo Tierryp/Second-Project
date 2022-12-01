@@ -30,6 +30,7 @@ router.post("/signup", isAnon, (req, res, next) => {
     return User.create({
       username: req.body.username,
       password: myHashedPassword,
+      profilePic: req.body.profilePic
     })
       .then((createdUser) => {
         console.log("New user created!", createdUser);

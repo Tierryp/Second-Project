@@ -1,0 +1,27 @@
+<form action = "/user/post/{{_id}}/edit" method = "POST">
+<label>Title</label>
+<br>
+<input type = "text" name = "title" value = "{{title}}">
+<br>
+<label>Description</label>
+<br>
+<input type = "text" name = "description" value = "{{description}}">
+<br>
+<label>Image (Optional)</label>
+<br>
+<input type = "text" name = "imageUrl" value = "{{imageUrl}}">
+<br>
+<label>Choose a tag:</label>
+<br>
+<select name="tag">
+    <option value="">--Please choose an option--</option>
+    <option value="Stocks">Stocks</option>
+    <option value="Forex">Forex</option>
+    <option value="Commodities">Commodities</option>
+    <option value="Cryptocurrencies">Cryptocurrencies</option>
+    <option value="Futures">Futures</option>
+    <option value="Indexes">Indexes</option>
+</select>
+
+<button type = "submit">Post!</button>
+</form>

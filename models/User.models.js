@@ -8,10 +8,8 @@ password: String,
 description: String,
 isAdmin: {type: Boolean, default: false},
 isOwner: {type: Boolean, default: false},
-profilePic: String, 
-}
-
-)
+profilePic: {type: String, default: "/images/smile2.png"}
+})
 
 
 const User = model("User", userSchema)

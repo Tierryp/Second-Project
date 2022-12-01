@@ -1,0 +1,165 @@
+{{!-- <p>{{foundPost.title}}</p>
+<p>{{foundPost.description}}</p>
+<img src = "{{foundPost.imageUrl}}">
+<p>Posted by: {{foundPost.owner.username}}</p> --}}
+<section class="pt-0">
+	<div class="container position-relative" data-sticky-container>
+		<div class="row">
+			<!-- Left sidebar START -->
+			<div class="col-lg-2">
+				<div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
+					<!-- Author info -->
+					<div class="position-relative">
+						<div class="avatar avatar-xl">
+							<img class="avatar-img rounded-circle" src="{{foundPost.owner.profilePic}}" alt="avatar">
+						</div>
+						<a href="#" class="h5 stretched-link mt-2 mb-0 d-block">{{foundPost.owner.username}}</a>
+					</div>
+					<hr class="d-none d-lg-block">
+				</div>
+			</div>
+			<!-- Left sidebar END -->
+			<!-- Main Content START -->
+			<div class="col-lg-7 mb-5">
+<h4 class="mt-4">{{foundPost.title}}</h4>
+		<p>{{foundPost.description}}</p>
+				<!-- Image -->
+				<figure class="figure mt-2">
+		      	<img class="rounded" src="{{foundPost.imageUrl}}" alt="Image">
+				</figure>
+				<!-- Images -->
+			</div>
+            </div>
+				<!-- Author info END -->
+
+                <div>
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+					<h3>Reply</h3>
+					<small>Make sure your comment follows the GLTrade Terms and Services*</small>
+					<form action = "/user/post/{{foundPost._id}}/comment" method = "post"class="row g-3 mt-2">
+					  <div class="col-12">
+					    <label class="form-label">Your Comment *</label>
+					  	<textarea class="form-control" rows="3" name = "comment"></textarea>
+					  </div>
+					  <div class="col-12">
+					    <button type="submit" class="btn btn-primary">Post comment</button>
+					  </div>
+					</form>
+				</div>
+
+
+
+
+
+
+
+	<h3>Replies</h3>
+{{#each foundPost.comment}}
+    {{!-- <h2>{{button}}</h2>
+    <h3>{{comment}}</h3>
+    <p><img src= "{{profilePic}}">{{user.username}}</p> --}}
+				<div>
+					<!-- Comment level 1-->
+					<div class="my-4 d-flex">
+					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{{user.profilePic}}" alt="avatar">
+					  <div>
+					    <div class="mb-2">
+					    	<h5 class="m-0">{{user.username}}</h5>
+					    </div>
+					    <p>{{comment}} </p>
+					  </div>
+					</div>
+
+ 
+
+{{#if button}} 
+<form action = "/user/post/{{this._id}}/delete-comment" method = "post"> 
+<button  class="btn btn-danger"type = "submit"> Delete comment</button>
+</form>
+
+
+{{else if this.isMyComment}}
+<form action = "/user/post/{{this._id}}/delete-comment" method = "post"> 
+<button  class="btn btn-danger" type = "submit"> Delete comment</button>
+</form>
+
+{{/if}}
+
+{{/each}}
+
+
+
+
+{{#if user.isOwner}}
+<form action = "/user/post/{{foundPost._id}}/delete" method = "post">
+    <button class="btn btn-danger" type = "submit"> Delete Post</button>
+    </form>
+    {{else if isMyPost}}
+<form action = "/user/post/{{foundPost._id}}/delete" method = "post">
+    <button class="btn btn-danger" type = "submit"> Delete Post</button>
+    </form>
+{{/if}}
+
+
+{{#if user.isAdmin}}
+<form action = "/user/post/{{foundPost._id}}/delete" method = "post">
+    <button class="btn btn-danger" type = "submit"> Delete Post</button>
+    </form>
+{{/if}}
+
+
+{{#if user.isOwner}}
+<form action = "/user/post/{{foundPost._id}}/edit" method = "get">
+    <button class="btn btn-success"> Edit post</button>
+    </form>
+    {{else if isMyPost}}
+<form action = "/user/post/{{foundPost._id}}/edit" method = "get">
+    <button> Edit post</button>
+    </form>
+{{/if}}
+
+
+
+{{#if user.isAdmin}}
+<form action = "/user/post/{{foundPost._id}}/edit" method = "get">
+    <button> Edit post</button>
+    </form>
+{{/if}}

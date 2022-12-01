@@ -1,8 +1,68 @@
-<h1>Subforum</h1>
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+      <div class="col-12">
+				<div class="border p-4 text-center rounded-3">
+					<h1>Subforum</h1>
+					<nav class="d-flex justify-content-center" aria-label="breadcrumb">
+						<ol class="breadcrumb breadcrumb-dots m-0">
+							<li class="breadcrumb-item"><a href="/"><i class="bi bi-house me-1"></i> Home</a></li>
+							
+						</ol>
+					</nav>
+				</div>
+      </div>
+    </div>
+	</div>
+</section>
+
 
 {{#each postArray}}
-<span><b>Tags:</b>{{tag}}</span>
-<br>
-<a href ="">{{title}}</a>
-<br>
+<section class="position-relative pt-0">
+	<div class="container">
+		<div class="row">
+			<!-- Main Post START -->
+			<div class="col-12">
+				<!-- Card item START -->
+				<div class="card border rounded-3 up-hover p-4 mb-4">
+					<div class="row g-3">
+						<div class="col-lg-5">
+							<!-- Categories -->
+							<a href="/user/post/{{_id}}" class="badge text-bg-danger mb-2"><i class="fas bi-circle me-2 small fw-bold"></i>{{tag}}</a>
+							<!-- Title -->
+							<h2 class="card-title">
+								<a href="/user/post/{{_id}}" class="btn-link text-reset stretched-link">{{title}}</a>
+							</h2>
+							<!-- Author info -->
+							<div class="d-flex align-items-center position-relative mt-3">
+								<div class="avatar me-2">
+									<img class="avatar-img rounded-circle" src="{{owner.profilePic}}" alt="avatar">
+								</div>
+								<div>
+									<h5 class="mb-1"><a href="/user/post/{{_id}}" class="stretched-link text-reset btn-link">{{owner.username}}</a></h5>
+									<ul class="nav align-items-center small">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- Detail -->
+						<div class="col-md-6 col-lg-4">
+							<p>{{description}} </p>
+						</div>
+						<!-- Image -->
+						<div class="col-md-6 col-lg-3">
+							<img class="rounded-3" src="{{imageUrl}}" alt="Card image">
+						</div>
+					</div>
+				</div>
+                </div>
+                </div>
+                </div>
+                </section>
 {{/each}}
+
+
+
+
+
+

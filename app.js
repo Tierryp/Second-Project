@@ -2,15 +2,13 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose");
 var path = require("path");
-
-
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth.routes");
 const userRouter = require("./routes/interface.routes.js")
-
-
+const adminRouter = require("./routes/admin.routes")
 require("./config/session.config")(app);
 require("dotenv/config");
+
 
 
 
@@ -24,13 +22,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-
+app.use((req, res, next) => {
+  if (req.session.user) {
+    res.locals.isLoggedIn = true;
+  } else {
+    res.locals.isLoggedIn = false;
+  }
+  next();
+});
 
 
 app.use("/", indexRouter)
 app.use("/auth", authRouter)
 app.use("/user", userRouter)
-
+app.use("/admin", adminRouter)
 
 
 

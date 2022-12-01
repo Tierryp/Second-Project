@@ -1,3 +1,6 @@
+const Post = require("../models/Post.models")
+const Comment = require("../models/Comment.model")
+
 const isLoggedin = (req, res, next) => {
   // console.log('hi')
   if (!req.session.user) {
@@ -30,8 +33,45 @@ const isPublic = (req, res, next) => {
   next();
 };
 
+
+const isOwner = (req, res, next) => {
+  Post.findById(req.params.id)
+    .then((foundPost) => {
+      console.log("THiS IS THE USER:", req.session.user);
+      if (String(foundPost.owner) === String(req.session.user._id) ||  req.session.user.isOwner === true) {
+        next();
+      } else {
+        next()
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
+const isCommentOwner = (req, res, next) => {
+  Comment.findById(req.params.id)
+    .then((foundPost) => {
+      console.log("THiS IS THE USER:", req.session.user);
+      if (
+        String(foundPost.user) === String(req.session.user._id) ||
+        req.session.user.isOwner === true
+      ) {
+        next();
+      } else {
+        next();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
     isLoggedin,
     isAnon,
-    isPublic
+    isPublic, 
+    isOwner, 
+    isCommentOwner
 }

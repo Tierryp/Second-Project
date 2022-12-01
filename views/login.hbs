@@ -1,23 +1,62 @@
-<h1>Log in</h1>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
+          <h2>Log in </h2>
+          <!-- Form START -->
+          <form action="/auth/login" method="POST" class="mt-4">
 
+            <div class="mb-3">
+              <label
+                class="form-label"
+                for="exampleInputUsername1"
+              >Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputUsername1"
+                aria-describedby="emailHelp"
+                name="username"
+                placeholder="Username"
+              />
 
-<form action = "/auth/login" method = "post">
-<label>Username</label> 
-<br>
-<input type = "text" name = "username">
-<br>
-<label>Password</label> 
-<br>
-<input type = "password" name = "password">
-<br>
-<button type = "submit">Log in</button>
-</form>
+            </div>
+            <!-- Password -->
+            <div class="mb-3">
+              <label
+                class="form-label"
+                for="exampleInputPassword1"
+              >Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="*********"
+                name="password"
+              />
+            </div>
+            <!-- Password -->
 
+            <!-- Button -->
+            <div class="row align-items-center">
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Log in</button>
+              </div>
+
+            </div>
+          </form>
+          <!-- Form END -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {{#if createdMessage}}
-<p style = "color:green;">{{createdMessage}}</p>
+  <p style="color:green;">{{createdMessage}}</p>
 {{/if}}
 
 {{#if errorMessage}}
-<p style = "color:red;">{{errorMessage}}</p>
+  <p style="color:red;">{{errorMessage}}</p>
 {{/if}}
