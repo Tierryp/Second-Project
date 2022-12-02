@@ -45,7 +45,7 @@ console.log("CREATED POST:", createdPost)
 .catch((err) => console.log(err))
 })
 // VIEW SPECIFIC POST
-router.get("/post/:id", isOwner, (req, res, next) => {
+router.get("/post/:id", isOwner, isLoggedin, (req, res, next) => {
   Post.findById(req.params.id)
     .populate({
       path: "comment",

@@ -152,7 +152,7 @@
     </form>
     {{else if isMyPost}}
 <form action = "/user/post/{{foundPost._id}}/edit" method = "get">
-    <button> Edit post</button>
+    <button class="btn btn-success"> Edit post</button>
     </form>
 {{/if}}
 
@@ -160,6 +160,6 @@
 
 {{#if user.isAdmin}}
 <form action = "/user/post/{{foundPost._id}}/edit" method = "get">
-    <button> Edit post</button>
+    <button class="btn btn-success"> Edit post</button>
     </form>
 {{/if}}

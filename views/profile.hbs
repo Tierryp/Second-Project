@@ -1,14 +1,30 @@
 
-<h1> Welcome to your profile {{username}}</h1>
+<div class="col-lg-2">
+  <div
+    class="text-start text-lg-center mb-5"
+    data-sticky
+    data-margin-top="80"
+    data-sticky-for="991"
+  >
+    <!-- User -->
+    <div class="position-relative">
+      <div class="avatar avatar-xl">
+        <img
+          class="avatar-img rounded-circle"
+          src="{{profilePic}}"
+          alt="avatar"
+        />
+      </div>
+      <a href="" class="h5 stretched-link mt-2 mb-0 d-block">{{username}}</a>
+      <p>User at GLTrade</p>
+    </div>
+    <hr class="d-none d-lg-block"/>
+    <!-- Buttons -->
+    <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+      <form action="/user/logout" method="POST">
+        <button class = "btn btn-sm btn-danger mb-0 mx-2">LOGOUT</button>
+      </form>
+    </ul>
+  </div>
+</div>
 
-<h2><img   class = "profilePic" style = "height: 4vw;" src = "{{profilePic}}"> {{username}}</h2>
-
-
-<a href = "/user/create-post">Create a post!</a>
-
-<form action = "/user/logout" method = "POST">
-    <button>LOGOUT</button>
-</form>
-
-                 
-                    
